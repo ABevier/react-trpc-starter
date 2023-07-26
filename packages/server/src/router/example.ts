@@ -17,13 +17,15 @@ const ExampleRouter = router({
   example: publicProcedure.query(async ({ ctx }) => {
     console.log("query was called!")
 
-    try {
-      const result = await dbClient.example.findUnique({where: { id: 1 }});
-      return { info: result.value };
-    } catch(e) {
-      console.error(e);
-      return { info: 'error' };
-    }
+    // try {
+    //   const result = await dbClient.example.findUnique({where: { id: 1 }});
+    //   return { info: result.value };
+    // } catch(e) {
+    //   console.error(e);
+    //   return { info: 'error' };
+    // }
+
+    return { info: "hello world" }
   }),
 });
 
