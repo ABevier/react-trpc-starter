@@ -12,6 +12,7 @@ functions:
       - http:
           path: /trpc/{proxy+}
           method: any
+          cors: true
 
 custom:
   esbuild:

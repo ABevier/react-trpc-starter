@@ -7,4 +7,13 @@ export type AppRouter = typeof appRouter;
 export const handler = awsLambdaRequestHandler({
   router: appRouter,
   createContext,
+  responseMeta() {
+    return {
+      headers: {
+        "Access-Control-Allow-Origin": '*', // TODO: restrict this to the domain of your frontend
+        "Access-Control-Allow-Methods": "GET,POST",
+        "Access-Control-Allow-Headers": "authorization",
+      },
+    };
+  },
 });
