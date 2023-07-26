@@ -1,0 +1,23 @@
+service: trpc-server
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  rest-api:
+    handler: src/server.handler
+    events:
+      - http:
+          path: /trpc/{proxy+}
+          method: any
+
+custom:
+  esbuild:
+    watch:
+      pattern: ['./src/**/*.ts'] 
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline

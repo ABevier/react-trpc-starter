@@ -1,0 +1,14 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-1.0.x"]
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("PRISMA_DATABASE_URL")
+}
+
+model example {
+  id    Int    @id @default(autoincrement())
+  value String
+}
