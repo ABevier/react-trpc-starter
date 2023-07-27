@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "serverless offline --httpPort 5001",
-    "deploy": "serverless deploy",
+    "dev": "serverless offline --noPrependStageInUrl --httpPort 5001 --stage local",
+    "deploy": "serverless deploy --stage dev",
     "check": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prisma:generate": "npx prisma generate"
   },
   "keywords": [],
   "author": "",
