@@ -1,5 +1,14 @@
 # React-tRPC-starter
 
+# TODO
+
+- Deploy React site
+- Ensure Prisma works when deployed in lambda
+- React Router
+- Auth
+- CI/CD
+- Server does not reload when files change (esbuild serverless plugin)
+
 # Tasks
 
 The following can be run with [`xc`], eg. `xc build`.

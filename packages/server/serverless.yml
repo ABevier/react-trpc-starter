@@ -17,7 +17,7 @@ functions:
 custom:
   esbuild:
     watch:
-      pattern: ['./src/**/*.ts'] 
+      pattern: './src/**/*.ts'
 
 plugins:
   - serverless-esbuild
