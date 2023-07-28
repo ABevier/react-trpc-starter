@@ -1,9 +1,6 @@
 # React-tRPC-starter
 
 # TODO
-
-- Deploy React site
-- Ensure Prisma works when deployed in lambda
 - React Router
 - Auth
 - CI/CD
@@ -21,16 +18,37 @@ installs dependencies.
 ```sh
 pnpm install
 cp ./packages/client/.env.local.example ./packages/client/.env.local
-cp ./packages/server/.env.example ./packages/server/.env
+cp ./packages/server/.env.local.example.yml ./packages/server/.env.local.yml
 ```
 
 ## Dev
 
 Install dependencies and start both frontend and backend processes
 
-```
+```sh
 pnpm install
 pnpm run dev
+```
+
+## Deploy-Client
+
+Build and deploy the front end client
+
+```sh
+pnpm install
+rm -rf packages/client/dist
+pnpm run --filter client build
+aws s3 sync packages/client/dist "$CLIENT_S3_BUCKET"/ --delete
+# TODO: invalidate CDN
+```
+
+## Deploy-Server
+
+Build and deploy the lambda backend
+
+```sh
+pnpm install
+pnpm run --filter server deploy
 ```
 
 # Dependencies
