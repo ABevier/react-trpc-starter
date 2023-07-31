@@ -19,7 +19,7 @@ const ExampleRouter = router({
 
     try {
       const result = await dbClient.example.findUnique({where: { id: 1 }});
-      return { info: result.value };
+      return { info: result?.value ?? 'no value' };
     } catch(e) {
       console.error(e);
       return { info: 'error' };
