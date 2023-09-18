@@ -27,6 +27,7 @@ Install dependencies and start both frontend and backend processes
 
 ```sh
 pnpm install
+pnpm run --filter server prisma:generate
 pnpm run dev
 ```
 
