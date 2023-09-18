@@ -22,7 +22,7 @@ const ExampleRouter = router({
       return { info: result?.value ?? 'no value' };
     } catch(e) {
       console.error(e);
-      return { info: 'error' };
+      return { info: 'no db' };
     }
   }),
 });
